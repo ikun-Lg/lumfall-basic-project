@@ -14,7 +14,7 @@
     "new-page": "node ./node_modules/lumfall/scripts/generate-page.js"
   },
   "dependencies": {
-    "lumfall": "^1.1.1"
+    "lumfall": "^1.2.1"
   },
   "devDependencies": {
     "concurrently": "^10.0.5",
