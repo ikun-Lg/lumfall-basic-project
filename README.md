@@ -98,11 +98,11 @@ controller / service 继承基类后可用：`this.services`（= `app.services`�
 5. `/health/live`、`/health/ready` 是框架内置健康检查；业务依赖探针通过
    `app/extend/` 注册到 `app.health`
 6. 生产环境建议开启 `config.security.apiSignature` 并把 `secret` 放到环境变量
-7. 框架内置依赖（`vue`、`@arco-design/web-vue`、`vue-router`、`pinia`、
-   `@babel/runtime`、`lodash`、`axios` 等）可直接 import，由框架构建管线解析，
-   无需重复安装（需要 lumfall ≥ 1.1.1；本模板保留这些声明以兼容旧版，升级后可删）。
-   框架没有的库（如 `echarts`）先 `pnpm add xxx` 再使用；`_` 与 `axios`
-   由框架经 webpack 全局注入，页面代码不 import 也能用
+7. 框架共享依赖（`vue`、`@arco-design/web-vue`、`vue-router`、`pinia`、
+   `@babel/runtime`、`lodash`、`axios` 等）可直接 import，由框架
+   `resolve.alias` 白名单解析（需要 lumfall ≥ 1.1.1），无需重复安装，
+   运行时也只有一份实例。白名单之外的库先 `pnpm add xxx` 再使用；
+   `_` 与 `axios` 另有 webpack 全局注入，页面代码不 import 也能用
 
 ## 下一步
 
